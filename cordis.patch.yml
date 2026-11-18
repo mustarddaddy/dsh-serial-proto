@@ -1,0 +1,5 @@
+# dsh-serial-proto bundle patch: one host row over the Web or Desktop profile.
+# Derived from dsh-serial-debugger (MIT, floydc-sz); adds protocol-model framing.
+- insert:
+    - id: serial-proto
+      name: dsh-serial-proto

@@ -1,0 +1,8 @@
+node_modules/
+.dsh/
+!test/fixtures/**/.dsh/
+!test/fixtures/**/.dsh/**
+*.log
+.DS_Store
+Thumbs.db
+*.tgz

@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "name": "demo",
+  "description": "Minimal two-field protocol used by test/smoke.mjs: command byte, one-byte payload length, CRC16/MODBUS over the frame.",
+  "transport": { "baudRate": 115200, "dataBits": 8, "parity": "None", "stopBits": "One" },
+  "framing": {
+    "sync": [],
+    "end": null,
+    "fields": [
+      { "name": "command", "type": "u8" },
+      { "name": "datalength", "type": "u8" }
+    ],
+    "lengthField": "datalength",
+    "lengthIncludes": "payload",
+    "checksum": {
+      "algorithm": "crc16-modbus",
+      "init": 65535,
+      "coverage": "frame",
+      "byteOrder": "be",
+      "acceptEitherOrder": true
+    },
+    "maxPayload": 768,
+    "statusWhenPayloadLength": 1,
+    "payloadAsStatus": true,
+    "overrides": [
+      {
+        "when": { "command": 100 },
+        "fields": [
+          { "name": "command", "type": "u8" },
+          { "name": "datalength", "type": "u16", "endian": "be" }
+        ]
+      }
+    ]
+  },
+  "commands": [
+    { "code": 10, "name": "CMD_GET_ID", "label": "Query ID" },
+    { "code": 100, "name": "CMD_IAP_DATA", "label": "IAP data block" }
+  ],
+  "errors": [{ "code": 0, "name": "CMD_SUCCESS", "label": "Success" }]
+}

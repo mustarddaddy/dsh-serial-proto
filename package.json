@@ -1,0 +1,72 @@
+{
+  "name": "dsh-serial-proto",
+  "version": "1.2.2",
+  "description": "Serial debugger sidebar for DeepSeek Harness that frames, checksums and decodes UART traffic from a JSON protocol model, and composes frames to send. Fork of dsh-serial-debugger.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mustarddaddy/dsh-serial-proto.git"
+  },
+  "homepage": "https://github.com/mustarddaddy/dsh-serial-proto#readme",
+  "bugs": {
+    "url": "https://github.com/mustarddaddy/dsh-serial-proto/issues"
+  },
+  "author": "mustarddaddy (maintainer of this fork); floydc-sz (original dsh-serial-debugger)",
+  "contributors": [
+    "floydc-sz"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "engines": {
+      "dsh": ">=0.2.0-rc.1"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-ui-sidebar-right"
+      ]
+    }
+  },
+  "files": [
+    "lib",
+    "docs",
+    "cordis.patch.yml",
+    "README.md",
+    "README-EN.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "serial",
+    "serialport",
+    "uart",
+    "serial-debugger",
+    "protocol",
+    "protocol-decoding",
+    "crc16",
+    "embedded"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  }
+}
