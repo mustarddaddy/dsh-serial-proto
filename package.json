@@ -1,7 +1,7 @@
 {
   "name": "dsh-serial-proto",
   "version": "1.2.2",
-  "description": "Serial debugger sidebar for DeepSeek Harness that frames, checksums and decodes UART traffic from a JSON protocol model, and composes frames to send. Fork of dsh-serial-debugger.",
+  "description": "DSH 右侧栏的串口调试面板：按 JSON 协议模型把串口字节流切成帧、校验并解码，也能按模型组帧发送。fork 自 dsh-serial-debugger。",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mustarddaddy/dsh-serial-proto.git"
